@@ -5,7 +5,7 @@
     <title>Home</title>
 </head>
 
-<body class="main" style="background-color: rgb(195, 211, 218);">
+<body class="main">
     <?php
         require "./funciones/conecta7.php";
         $con = conecta();
