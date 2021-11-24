@@ -106,6 +106,8 @@
     margin-top: 50px;
     margin-bottom: 50px;
     background-color: rgb(195, 211, 218);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
 }
 
 .wrap{
@@ -113,7 +115,6 @@
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    font-family: Arial, Helvetica, sans-serif;
     display: flex;
 }
 
@@ -126,7 +127,6 @@
     align-content: center;
     text-align: center;
     padding: 8px;
-    font-size: 16px;
     max-width: 960px;
     float: left;
 }
@@ -139,20 +139,9 @@
     padding: 8px;
 }
 
-.filasHome{
-    width: 100%;
-    float: left;
-    align-items: center;
-    border-bottom: 2px solid #000000;
-    padding-bottom: 5px;
-    display: table-row;
-    position: relative;
-}
-
 .productoHome{
     width: 30%;
     height: 320px;
-
     padding: 5px;
     float: left;
     margin-right: 10px;
@@ -176,4 +165,38 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+/* Contacto */
+.contacto{
+    margin-top: 40px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    text-align: center;
+    padding: 30px;
+    background-color: rgb(171, 186, 192);
+    border-radius: 10px;
+}
+
+.inputContacto{
+    width: 400px;
+    font-size: 20px;
+    border: 0px;
+    resize: none;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    border-bottom: rgb(97, 124, 136) solid 3px;
+}
+
+.botonContacto{
+    font-size: 20px; 
+    width: 140px;
+    float: right;
+    border: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(97, 124, 136);
+    cursor: pointer;
 }
