@@ -38,31 +38,23 @@ function registrarse(){
         setTimeout("$('#mensaje').html('');",5000);*/
         alert("Faltan campos por llenar");
     } else {
-        encontrado = validarCorreo(correo);
-        if(encontrado){
-            /*$('#mensaje').html('Error: Este correo ya está registrado');
-            setTimeout("$('#mensaje').html('');",5000);*/
-            alert("El correo ya está registrado");
-            return false;
-        } else {
-            document.registro.method = 'post';
-            document.registro.action = './funciones/registraUsuario.php';
-            document.registro.submit();
-        }
+        document.registro.method = 'post';
+        document.registro.action = './funciones/registraUsuario.php';
+        document.registro.submit();
     }
 }
 
-function validarCorreo(correo){
+function validarCorreo(){
+    var correo = $('#correoReg').val();
     $.ajax({
         type: 'post',
         url: './funciones/busca_correo.php?correo='+correo,
         success: function(flag){
             if(flag == 1){
-                return true;
+                $('#registrar').attr('disabled',true);
             }
             else{
-                alert("False");
-                return false;
+                $('#registrar').attr('disabled',false);
             }
         }, error: function(){
             alert('Error: Archivo no encontrado');

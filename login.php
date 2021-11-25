@@ -25,7 +25,7 @@
                         <h1>Registrarse</h1>
                         <input class="inputLogin" type="text" name="nombre" id="nombre" placeholder="Nombre" required/><br>
                         <input class="inputLogin" type="text" name="apellidos" id="apellidos" placeholder="Apellidos" required/><br>
-                        <input class="inputLogin" type="text" name="correoReg" id="correoReg" placeholder="Correo" required/><br>
+                        <input class="inputLogin" type="text" name="correoReg" id="correoReg" placeholder="Correo" required onblur="validarCorreo();"/><br>
                         <input class="inputLogin" type="password" name="passwordReg" id="passwordReg" placeholder="Contraseña" required/><br>
                         <input class="botonContacto" id="registrar" type="submit" onclick="registrarse(); return false;" value="Registrarse"/>
                     </form>
