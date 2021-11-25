@@ -1,8 +1,8 @@
 <?php
 session_start();
 error_reporting(0);
-$nombreCliente = $_SESSION['nombre'];
-$correoCliente = $_SESSION['correo'];
+$nombreCliente = $_SESSION['nombreCliente'];
+$correoCliente = $_SESSION['correoCliente'];
 $articulos = $_SESSION['articulos'];
 if ($articulos == "") {
     $numCarrito = 0;
@@ -36,17 +36,16 @@ if ($articulos == "") {
                     <a href="./contacto.php" class="menuLink">
                         <div id="opcion3" class="opcionMenu" OnMouseEnter="seleccionMenu(3)" OnMouseLeave="deseleccionMenu(3)">Contacto</div>
                     </a>
-                    <a href="./carrito01.php" class="menuLink">
-                        <div id="opcion4" class="opcionMenu" OnMouseEnter="seleccionMenu(4)" OnMouseLeave="deseleccionMenu(4)">Carrito(<?php echo $numCarrito ?>)</div>
-                    </a>
                     <?php if ($correoCliente == "") { ?>
                         <a href="./login.php" class="menuLink">
                             <div id="opcion5" class="opcionMenu" OnMouseEnter="seleccionMenu(5)" OnMouseLeave="deseleccionMenu(5)">Iniciar sesión</div>
                         </a>
                     <?php } else { ?>
-                        <div id="bienvenido" class="opcionMenu">Bienvenido <?php echo $nombreCliente ?></div>
-                        <a href="./cerrar_sesion.php" class="menuLink">
-                            <div id="opcion5" class="opcionMenu" OnMouseEnter="seleccionMenu(5)" OnMouseLeave="deseleccionMenu(5)">Iniciar sesión</div>
+                        <a href="./carrito01.php" class="menuLink">
+                            <div id="opcion4" class="opcionMenu" OnMouseEnter="seleccionMenu(4)" OnMouseLeave="deseleccionMenu(4)">Carrito(<?php echo $numCarrito ?>)</div>
+                        </a>
+                        <a href="./funciones/cerrar_sesion.php" class="menuLink">
+                            <div id="opcion5" class="opcionMenu" OnMouseEnter="seleccionMenu(5)" OnMouseLeave="deseleccionMenu(5)">Cerrar sesión</div>
                         </a>
                     <?php } ?>
                 </div>
