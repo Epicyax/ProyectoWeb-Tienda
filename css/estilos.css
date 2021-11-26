@@ -156,6 +156,7 @@
     height: 200px;
     padding: 5px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .nombreHome{
@@ -226,4 +227,72 @@
     margin-bottom: 10px;
     border-radius: 3px;
     border-bottom: rgb(97, 124, 136) solid 3px;
+}
+
+/* Detalle producto */
+.contenedorProducto{
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    text-align: justify;
+    padding: 10px;
+    float: left;
+}
+
+.imagenProducto{
+    max-width: 360px;
+    max-height: 360px;
+}
+
+.productosRelacionados{
+    margin-left: auto;
+    margin-right: auto;
+    align-content: center;
+    height: fit-content;
+    display: flex;
+    text-align: justify;
+    padding: 10px;
+    float: left;
+}
+
+.productoRelacionado{
+    width: 210px;
+    height: 300px;
+    padding: 5px;
+    float: left;
+    margin-right: 50px;
+    font-size: 20px;
+    background-color: rgb(171, 186, 192);
+    text-overflow: ellipsis;
+    cursor: pointer; 
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btnAgregar{
+    cursor: pointer;
+    border: 0px;
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(97, 124, 136);
+    transition: all 0.5s ease;
+}
+
+.btnAgregar:hover{
+    background-color: rgb(70, 95, 105);
+}
+
+.selectAgregar{
+    width: 80px;
+    border: 0px;
+    height: 30px;
+    border-radius: 10px;
+    padding: 5px;
+    transition: all 0.5s ease;
+}
+
+.selectAgregar:hover{
+    background-color: rgb(217, 244, 255);
 }
