@@ -1,11 +1,18 @@
 <?php
 session_start();
 error_reporting(0);
+$idCliente = $_SESSION['idCliente'];
 $nombreCliente = $_SESSION['nombreCliente'];
 $correoCliente = $_SESSION['correoCliente'];
-$articulos = $_SESSION['articulos'];
-if ($articulos == "") {
-    $numCarrito = 0;
+
+require "./funciones/conecta7.php";
+$con = conecta();
+if($idCliente != ""){
+    $totalArt = "SELECT SUM(cantidad) AS articulos FROM pedidos_productos 
+                WHERE id_pedido = (SELECT id FROM pedidos WHERE usuario = $idCliente AND status = 0)";
+    $r = $con->query($totalArt);
+    $rw = $r->fetch_array();
+    $numCarrito = $rw['articulos'];
 }
 ?>
 <html>

@@ -1,8 +1,8 @@
-<?php include '../menu.php'; ?>
 <?php
     require "./conecta7.php";
     $con = conecta();
 
+    $idCliente = $_REQUEST['idC'];
     $id = $_REQUEST['id'];
     $costo = $_REQUEST['costo'];
     $cantidad = $_REQUEST['cantidad'];
@@ -22,13 +22,6 @@
     } else {
 
     }
-
-    /*$sql =  "INSERT INTO productos
-            (nombre, codigo, descripcion, costo, stock, archivo_n, archivo)
-            VALUES ('$nombre', '$codigo', '$descripcion', '$costo', $stock,
-                    '$archivo_n', '$archivo')";
-    
-    $res = $con->query($sql);*/
 
     header("Location: ../carrito01.php");
 ?>

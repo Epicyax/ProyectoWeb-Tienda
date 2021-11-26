@@ -1,6 +1,4 @@
 <?php
-    // Ubicacion del archivo:
-    // ./funciones/conecta.php
     define("HOST",'localhost');
     define("BD",'cliente01');
     define('USER_BD', 'root');
