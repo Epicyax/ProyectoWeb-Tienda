@@ -15,7 +15,6 @@
             <div class="contenedor">
                 <form name="productos">
                 <?php
-                    require "./funciones/conecta7.php";
                     $con = conecta();
                     $sql = "SELECT * FROM productos WHERE eliminado = 0 AND status = 1 AND stock > 0 ORDER BY id";
                     // Hacer que los que no tienen stock aparezcan pero no se pueda agregar

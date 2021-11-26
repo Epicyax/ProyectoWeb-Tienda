@@ -19,7 +19,6 @@
     <body class="main">
         <div class="wrap" style="background-color: rgb(171, 186, 192); border-radius: 8px;">
             <?php
-                require "./funciones/conecta7.php";
                 $con = conecta();
                 $id = $_GET['id'];
                 $sql = "SELECT * FROM productos WHERE id = $id";
@@ -41,6 +40,7 @@
                 </div>
                 <div class="contenedorProducto">
                     <div><form name="producto">
+                        <input type="number" name="idC" value="<?php echo $idCliente;?>" hidden>
                         <input type="number" name="id" value="<?php echo $id;?>" hidden>
                         <input type="number" name="costo" value="<?php echo $costo;?>" hidden>
                         <h1><?php echo $nombre;?></h1>

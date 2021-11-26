@@ -4,7 +4,7 @@
 <head>
     <title>Home</title>
     <script>
-        function agregar(id){
+        function agregarProducto(id){
             var articulos = document.productos.producto_.value;
             if(articulos == "0")
                 alert("Selecciona una cantidad valida");
@@ -24,8 +24,6 @@
 
 <body class="main">
     <?php
-        require "./funciones/conecta7.php";
-        $con = conecta();
         $sql = "SELECT * FROM banners WHERE eliminado = 0 AND status = 1 ORDER BY rand() LIMIT 1";
         $res = $con->query($sql);
         $row = $res->fetch_array();
@@ -56,8 +54,7 @@
                         <?php echo $nombre; ?>
                     </div><br>
                     <?php echo number_format($costo,2); ?><br>
-                    <select id="producto_<?php echo $id; ?>" name="producto_<?php echo $id; ?>">
-                        <option value="0">Selecciona</option>
+                    <select id="producto_<?php echo $id; ?>" name="producto_<?php echo $id; ?>" class="selectAgregar">
                         <option value="1" selected>1</option>
                         <?php
                             for($contador=2; $contador <= $stock; $contador++){
@@ -65,7 +62,7 @@
                             }
                         ?>
                     </select>
-                    <input onclick="agregar(<?php echo $id; ?>);return false;" type="submit" value="Agregar" <?php if($correoCliente == "") {?>disabled<?php }?>><br>
+                    <input class="btnAgregar" onclick="agregarProducto(<?php echo $id; ?>);return false;" type="submit" value="Agregar" <?php if($correoCliente == "") {?>disabled<?php }?>><br>
                     <div id="mensaje_<?php echo $id; ?>" style="color:#FF0000; font-size:11px; height: 20px"></div>
                 </div>
             <?php
