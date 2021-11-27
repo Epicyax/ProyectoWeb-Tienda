@@ -48,7 +48,7 @@
                         <p><b>Precio:</b> <?php echo number_format($costo, 2)?></p>
                         <p><b>Descrición del producto: </b><?php echo $descripcion;?></p>
                         <p><b>En stock: </b><?php echo $stock;?></p>
-                        <select id="cantidad" name="cantidad" class="selectAgregar">
+                        <select id="cantidad" name="cantidad" class="selectAgregar" <?php if($stock == 0){?>disabled<?php } ?>>
                             <option value="1" selected>1</option>
                             <?php
                                 for($contador=2; $contador <= $stock; $contador++){
@@ -56,7 +56,7 @@
                                 }
                             ?>
                         </select>
-                        <input type="submit" value="Agregar" class="btnAgregar" onclick="agregarProducto(<?php echo $id; ?>);return false;" <?php if($correoCliente == "") {?>disabled<?php }?>>
+                        <input type="submit" value="Agregar" class="btnAgregar" onclick="agregarProducto(<?php echo $id; ?>);return false;" <?php if($correoCliente == "" || $stock == 0) {?>disabled<?php }?>>
                     </div></form>
                 </div>
             </div>
