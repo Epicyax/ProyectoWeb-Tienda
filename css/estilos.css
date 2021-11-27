@@ -331,3 +331,23 @@
     margin-top: auto;
     margin-bottom: auto;
 }
+
+.btnContinuar{
+    width: 140px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 10px;
+    background-color: rgb(97, 124, 136);
+    transition: all 0.5s ease;
+}
+
+.btnContinuar:hover{
+    background-color: rgb(70, 95, 105);
+}
+
+.filaContinuar{
+    border-bottom: 0px;
+    background-color: unset;
+}

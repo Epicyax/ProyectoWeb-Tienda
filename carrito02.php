@@ -3,55 +3,35 @@
   <head>
     <title>Carrito</title>
     <script>
-        function cambiaCantidad(idProducto, idCliente){
-            var nuevaCant = $('#cantidad'+idProducto).val();
+        function finalizarPedido(id){
             $.ajax({
-                url:        './funciones/actualiza_cantidad.php?idP='+idProducto+'&idC='+idCliente+'&cant='+nuevaCant,
+                url:        './funciones/finalizar_pedido.php?idC='+id,
                 type:       'post',
                 success:    function(res){
                     if (res == 1){
-                        location.reload();
+                        alert("Pedido realizado con éxito");
+                        location.href="./index.php";
                     } else {
                         alert("Falla");
                     }
                 }, error: function(){
                     alert('Error: Archivo no encontrado');
                 }
-            });            
-        }
-
-        function eliminarProducto(idProducto, idCliente){
-            if(confirm("¿Seguro de que desea quitar este producto?")){
-                $.ajax({
-                    url:        './funciones/elimina_carrito.php?idP='+idProducto+'&idC='+idCliente,
-                    type:       'post',
-
-                    success:    function(res){
-                        if (res == 1){
-                            $('#fila'+idProducto).hide();
-                        } else {
-                            /*$('#mensaje').html('Error en la eliminacion');
-                            setTimeout("$('#mensaje').html('');",3000);*/
-                            alert("Falla");
-                        }
-                    }, error: function(){
-                        alert('Error: Archivo no encontrado');
-                    }
-                });
-            }
+            });  
         }
     </script>
   </head>
   <body class="main">
         <div class="wrap">
             <div class="contenido">
+                <form name="pedido">
+                <input type="button" value="Regresar" class="btnAgregar" onclick="location.href='./carrito01.php'" style="float: right;">
                 <h1>Carrito</h1>
                 <div class="filaInfoCarrito headerCarrito">
                     <div class="infoCarrito"><b>Producto</b></div>
                     <div class="infoCarrito"><b>Cantidad</b></div>
                     <div class="infoCarrito"><b>Costo unitario</b></div>
                     <div class="infoCarrito"><b>Subtotal</b></div>
-                    <div class="infoCarrito"></div>
                 </div>
                 <?php
                     $sql = "SELECT  PR.nombre, PR.stock, PE.cantidad, PE.precio, PE.id_producto 
@@ -70,23 +50,9 @@
                 ?>
                     <div class="filaInfoCarrito" id="fila<?php echo $id;?>">
                         <div class="infoCarrito"><?php echo $nombre; ?></div>
-                        <div class="infoCarrito">
-                            <select id="cantidad<?php echo $id;?>" name="cantidad" class="selectAgregar" onchange="cambiaCantidad(<?php echo $id;?>, <?php echo $idCliente;?>);">
-                                <?php
-                                    for($contador=1; $contador <= $stock; $contador++){
-                                        if($contador == $cantidad)
-                                            echo '<option value='.$contador.' selected>'.$contador.'</option>';
-                                        else
-                                            echo '<option value='.$contador.'>'.$contador.'</option>';
-                                    }
-                                ?>
-                            </select>
-                        </div>
+                        <div class="infoCarrito"><?php echo $cantidad; ?></div>
                         <div class="infoCarrito">$<?php echo number_format($precio, 2); ?></div>
                         <div class="infoCarrito">$<?php echo number_format($precio*$cantidad, 2);?></div>
-                        <div class="infoCarrito">
-                            <input type="button" value="Eliminar" class="btnAgregar" onclick="eliminarProducto(<?php echo $id;?>, <?php echo $idCliente;?>);">
-                        </div>
                     </div>
                 <?php
                     }
@@ -96,12 +62,13 @@
                     <div class="infoCarrito"></div>
                     <div class="infoCarrito"><b>Total</b></div>
                     <div class="infoCarrito">$<?php echo number_format($total, 2);?></div>
-                    <div class="infoCarrito"></div>
                 </div>
+                <input id="idP" type="number" value="<?php echo $idCliente ?>" hidden>
                 <div class="filaInfoCarrito filaContinuar">
                     <div class="infoCarrito"></div><div class="infoCarrito"></div><div class="infoCarrito"></div><div class="infoCarrito"></div>
-                    <input type="button" value="Continuar" class="btnContinuar" onclick="location.href='./carrito02.php'">
+                    <input type="submit" value="Finalizar" class="btnContinuar" onclick="finalizarPedido(<?php echo $idCliente; ?>); return false;">
                 </div>
+                </form>
             </div>
         </div>
   </body>
