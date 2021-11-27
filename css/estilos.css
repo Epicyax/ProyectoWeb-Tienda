@@ -296,3 +296,38 @@
 .selectAgregar:hover{
     background-color: rgb(217, 244, 255);
 }
+
+/* Carrito */
+.filaInfoCarrito{
+    max-width: 1000px;
+    width: 100%;
+    min-width: 100px;
+    height: fit-content;
+    font-size: 20px;
+    padding: 10px;
+    float: left;
+    display: flex;
+    background-color: rgb(171, 186, 192);
+    text-align: center;
+    border-bottom: rgb(97, 124, 136) 5px solid;
+}
+
+.headerCarrito{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: rgb(97, 124, 136);
+}
+
+.footerCarrito{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgb(97, 124, 136);
+}
+
+.infoCarrito{
+    width: 20%;
+    height: inherit;
+    margin: 5px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
