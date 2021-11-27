@@ -1,11 +1,11 @@
 <?php include 'menu.php'; ?>
 <html>
     <head>
-        <title></title>
+        <title>Producto</title>
         <script>
             function agregarProducto(id){
                 document.producto.method = 'post';
-                document.producto.action = './funciones/scriptAgregaProducto';
+                document.producto.action = './funciones/scriptAgregaProducto.php';
                 document.producto.submit();
             }
 
@@ -41,7 +41,7 @@
                 <div class="contenedorProducto">
                     <div><form name="producto">
                         <input type="number" name="idC" value="<?php echo $idCliente;?>" hidden>
-                        <input type="number" name="id" value="<?php echo $id;?>" hidden>
+                        <input type="number" name="idP" value="<?php echo $id;?>" hidden>
                         <input type="number" name="costo" value="<?php echo $costo;?>" hidden>
                         <h1><?php echo $nombre;?></h1>
                         <p><b>Código:</b> <?php echo $codigo;?></p>

@@ -3,7 +3,7 @@
     $con = conecta();
 
     $idCliente = $_REQUEST['idC'];
-    $id = $_REQUEST['id'];
+    $id = $_REQUEST['idP'];
     $costo = $_REQUEST['costo'];
     $cantidad = $_REQUEST['cantidad'];
 
