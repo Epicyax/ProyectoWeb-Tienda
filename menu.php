@@ -12,7 +12,10 @@ if($idCliente != ""){
                 WHERE id_pedido = (SELECT id FROM pedidos WHERE usuario = $idCliente AND status = 0)";
     $r = $con->query($totalArt);
     $rw = $r->fetch_array();
-    $numCarrito = $rw['articulos'];
+    if($rw['articulos'] != 0)
+        $numCarrito = $rw['articulos'];
+    else
+        $numCarrito = 0;    
 }
 ?>
 <html>
