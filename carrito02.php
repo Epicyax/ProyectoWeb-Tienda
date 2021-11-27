@@ -9,8 +9,7 @@
                 type:       'post',
                 success:    function(res){
                     if (res == 1){
-                        alert("Pedido realizado con éxito");
-                        location.href="./index.php";
+                        location.href="./exito_compra.php";
                     } else {
                         alert("Falla");
                     }

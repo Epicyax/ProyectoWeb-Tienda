@@ -2,6 +2,9 @@
 <html>
     <head>
         <title>Contacto</title>
+        <script>
+
+        </script>
     </head>
     <body class="main">
         <div class="wrap">
