@@ -126,6 +126,15 @@
     border-radius: 10px;
 }
 
+.good-msg{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(94, 226, 134, 0.8);
+    border-radius: 10px;
+    text-align: center;
+}
+
 /* Home - Productos */
 .contenedor{
     height: 100%;

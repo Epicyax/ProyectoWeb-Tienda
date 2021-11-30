@@ -29,10 +29,15 @@
                     success:    function(res){
                         if (res == 1){
                             $('#fila'+idProducto).hide();
+                            $('#mensaje').html('Producto eliminado con éxito');
+                            $('#mensaje').addClass("good-msg");
+                            $('#mensaje').show(400);
+                            setTimeout("$('#mensaje').hide(300);",4000);
                         } else {
-                            /*$('#mensaje').html('Error en la eliminacion');
-                            setTimeout("$('#mensaje').html('');",3000);*/
-                            alert("Falla");
+                            $('#mensaje').html('Error al eliminar');
+                            $('#mensaje').addClass("err-msg");
+                            $('#mensaje').show(400);
+                            setTimeout("$('#mensaje').hide(300);",4000);
                         }
                     }, error: function(){
                         alert('Error: Archivo no encontrado');
@@ -45,6 +50,7 @@
   <body class="main">
         <div class="wrap">
             <div class="contenido">
+                <div id="mensaje" class="good-msg" hidden></div>
                 <h1>Carrito</h1>
                 <div class="filaInfoCarrito headerCarrito">
                     <div class="infoCarrito"><b>Producto</b></div>
@@ -100,7 +106,7 @@
                 </div>
                 <div class="filaInfoCarrito filaContinuar">
                     <div class="infoCarrito"></div><div class="infoCarrito"></div><div class="infoCarrito"></div><div class="infoCarrito"></div>
-                    <input type="button" value="Continuar" class="btnContinuar" onclick="location.href='./carrito02.php'">
+                    <input type="button" value="Continuar" class="btnContinuar" onclick="location.href='./carrito02.php'" <?php if($total==0){ ?>disabled<?php } ?>>
                 </div>
             </div>
         </div>
