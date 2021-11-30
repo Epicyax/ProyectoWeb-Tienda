@@ -3,8 +3,9 @@ function ingresa(){
     var pass = document.ingreso.passwordLog.value;
 
     if(correo == "" || pass == ""){
-        /*$('#mensaje').html('Error: Faltan campos por llenar');
-        setTimeout("$('#mensaje').html('');",5000);*/
+        $('#err-msg-login').html('Faltan campos por llenar');
+        $('#err-msg-login').show(400);
+        setTimeout("$('#err-msg-login').hide(300);",4000);
     } else {
         setTimeout("$('#mensaje').html('');",0);
         $.ajax({
@@ -15,9 +16,9 @@ function ingresa(){
                 if (res == 1){
                     window.location.href = 'index.php';
                 } else {
-                    /*$('#mensaje').html('Credenciales incorrectas');
-                    setTimeout("$('#mensaje').html('');",3000);*/
-                    alert("Credenciales incorrectas");
+                    $('#err-msg-login').html('Credenciales incorrectas');
+                    $('#err-msg-login').show(400);
+                    setTimeout("$('#err-msg-login').hide(300);",4000);
                 }
             }, error: function(){
                 alert('Error: Archivo no encontrado');
@@ -34,9 +35,9 @@ function registrarse(){
     var pass = document.registro.passwordReg.value;
 
     if(nombre == "" || apellidos == "" || correo == "" || pass == ""){
-        /*$('#mensaje').html('Error: Faltan campos por llenar');
-        setTimeout("$('#mensaje').html('');",5000);*/
-        alert("Faltan campos por llenar");
+        $('#err-msg-registro').html('Faltan campos por llenar');
+        $('#err-msg-registro').show(400);
+        setTimeout("$('#err-msg-registro').hide(300);",4000);
     } else {
         document.registro.method = 'post';
         document.registro.action = './funciones/registraUsuario.php';
@@ -51,6 +52,9 @@ function validarCorreo(){
         url: './funciones/busca_correo.php?correo='+correo,
         success: function(flag){
             if(flag == 1){
+                $('#err-msg-registro').html('El correo'+correo+' ya está registrado');
+                $('#err-msg-registro').show(400);
+                setTimeout("$('#err-msg-registro').hide(300);",4000);
                 $('#registrar').attr('disabled',true);
             }
             else{
