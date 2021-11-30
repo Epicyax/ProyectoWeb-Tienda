@@ -55,6 +55,9 @@
                     </div>
                 <?php
                     }
+                    if($total == 0){
+                        header("Location: ./carrito01.php");
+                    }
                 ?>
                 <div class="filaInfoCarrito footerCarrito">
                     <div class="infoCarrito"></div>
