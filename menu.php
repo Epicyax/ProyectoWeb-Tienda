@@ -21,6 +21,7 @@ if($idCliente != ""){
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="./css/estilos.css" />
+        <link rel="shortcut icon" href="./assets/favicon.png">
         <script src="js/jquery-3.3.1.min.js"></script>
         <script>
             function seleccionMenu(id) {
@@ -35,6 +36,11 @@ if($idCliente != ""){
 
     <body>
         <div id="wrapMenu">
+            <div class="opcionMenu" style="position: absolute; top: 0px;">
+                <a href="./index.php" class="menuLink">
+                    <img src="./assets/logo.png" style="width: auto; height: 40px">
+                </a>
+            </div>
             <div id="contenedorMenu">
                 <div id="menu">
                     <a href="./index.php" class="menuLink">
