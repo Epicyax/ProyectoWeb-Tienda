@@ -118,6 +118,14 @@
     display: flex;
 }
 
+.err-msg{
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgba(226, 94, 94, 0.800);
+    border-radius: 10px;
+}
+
 /* Home - Productos */
 .contenedor{
     height: 100%;
